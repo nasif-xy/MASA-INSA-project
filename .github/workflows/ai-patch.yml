@@ -25,11 +25,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install openai
+        run: pip install google-genai
 
       - name: Run AI Script
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TASK: ${{ github.event.inputs.task_description }}
         run: python ai_worker.py
 
