@@ -1,0 +1,62 @@
+﻿name: AI Auto Commit and PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_description:
+        description: 'Describe the changes/patch you want made'
+        required: true
+        default: 'Refactor and update documentation'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ai-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install openai
+
+      - name: Run AI Patch Script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TASK: ${{ github.event.inputs.task_description }}
+        run: |
+          python -c "
+          import os
+          from openai import OpenAI
+          
+          client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+          task = os.environ.get('TASK', 'Update documentation')
+          
+          response = client.chat.completions.create(
+              model='gpt-4o',
+              messages=[
+                  {'role': 'system', 'content': 'You are a code assistant. Provide updated docs.'},
+                  {'role': 'user', 'content': f'Generate a change summary for task: {task}'}
+              ]
+          )
+          
+          with open('AI_CHANGES.md', 'a') as f:
+              f.write('\n\n## Automated Patch\n' + response.choices[0].message.content)
+          "
+
+      - name: Create Pull Request with Changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automated AI patch: ${{ github.event.inputs.task_description }}"
+          branch: "ai-patch-${{ github.run_number }}"
+          title: "AI Patch: ${{ github.event.inputs.task_description }}"
+          body: "This PR was generated automatically by the AI workflow."
