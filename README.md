@@ -24,6 +24,7 @@ The platform is designed for traceability: findings are derived from stored evid
 > **Scope:** This is an automated assessment and triage tool. It reports observations and likely risks; it does not prove exploitability, guarantee detection, or replace a manual mobile penetration test. The analysis and reasoning pipeline is deterministic Python; it does not use an AI/LLM to produce findings.
 
 ## Contents
+1. [Real-time demo](#real-time-demo)
 
 1. [What it provides](#1-what-it-provides)
 2. [Features](#2-features)
@@ -47,6 +48,20 @@ The platform is designed for traceability: findings are derived from stored evid
 <!-- Add genuine screenshots when available:
 ![Dashboard](docs/images/dashboard.png)
 ![Findings](docs/images/findings.png)
+-->
+
+---
+
+## Real-time demo
+
+A real-time walkthrough video demonstrating MASA + DY-MASA in operation will be added here.
+
+<!--
+When the video is published, replace this comment with:
+[Watch the MASA + DY-MASA real-time demo](PASTE_VIDEO_URL_HERE)
+
+For a YouTube video, use its public watch URL. For a video hosted in this repository,
+consider a short GIF preview plus a link to the full video.
 -->
 
 ---
@@ -732,6 +747,8 @@ Use this software only on applications and devices you own or have written permi
 **License:** Licensed under the MIT License. See [LICENSE](LICENSE).
 
 **Author:** Ibsa T. — [@Mr-VantaRoot](https://github.com/Mr-VantaRoot). Developed as an INSA exit project.
+
+**Windows Version Developer:** [nasif-xy](https://github.com/nasif-xy) — focused on the Windows developer setup, PowerShell workflow documentation, and cross-platform onboarding for MASA.
 
 Related documentation:
 - [RUNBOOK.md](RUNBOOK.md) — operational setup and troubleshooting notes.
