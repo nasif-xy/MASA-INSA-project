@@ -1,11 +1,11 @@
-# MASA + DY-MASA
+﻿# MASA + DY-MASA
 
 **Evidence-backed Android application security assessment: static analysis (MASA) and ADB runtime validation (DY-MASA), in one local web app.**
 
 <table align="center">
   <tr>
     <td align="center" valign="middle">
-      <img src="assets/branding/masa-logo.png" alt="MASA — Mobile Application Security Analyzer" width="280" height="280">
+      <img src="assets/branding/masa-logo.png" alt="MASA â€” Mobile Application Security Analyzer" width="280" height="280">
     </td>
     <td align="center" valign="middle">
       <img src="https://raw.githubusercontent.com/Mr-VantaRoot/DY-MASA_project/feature/cli-stage-a/assets/MASA-CLI.png" alt="MASA CLI" width="280" height="280">
@@ -143,7 +143,7 @@ Runtime analysis is separate from the static scan. A report generated after stat
 - Optional terminal route/page, disabled by default and only mounted when enabled.
 - **CLI edition:** run scans and inspect saved jobs, findings, evidence, reports, and runtime-validation status directly from the terminal, using the same configured database as the web dashboard.
 
-For terminal users, DY-MASA includes both an interactive menu and subcommands. From the repository root, run `./work/dy-masa` to open the menu or `./work/dy-masa --help` to see available commands. For example, `./work/dy-masa analyze "/path/to/authorized-app.apk"` starts a scan, while `./work/dy-masa findings` lists stored findings. The CLI is an additional way to use DY-MASA—not a separate scanner or database. See [CLI edition and command reference](#cli-edition) in the setup section below.
+For terminal users, DY-MASA includes both an interactive menu and subcommands. From the repository root, run `./work/dy-masa` to open the menu or `./work/dy-masa --help` to see available commands. For example, `./work/dy-masa analyze "/path/to/authorized-app.apk"` starts a scan, while `./work/dy-masa findings` lists stored findings. The CLI is an additional way to use DY-MASAâ€”not a separate scanner or database. See [CLI edition and command reference](#cli-edition) in the setup section below.
 
 ---
 
@@ -260,7 +260,7 @@ The runtime logcat parser is implemented in Python and can be tested independent
 1. It discovers target-app process IDs from Android process-start records and tracks observed process IDs as the app restarts.
 2. It classifies lines into tiers: **Tier A** for the target process, **Tier B** for selected system lifecycle lines or lines referencing the target PID/UID, and **Tier C** for other lines that mention the package.
 3. The filtered log combines Tier A and Tier B while preserving the original line order and line content.
-4. Crash observations are tied to the target application/process rather than triggered by a generic occurrence of the word “crash”.
+4. Crash observations are tied to the target application/process rather than triggered by a generic occurrence of the word â€œcrashâ€.
 
 Supported input formats and device-specific behavior should be checked against the Limitations section when interpreting a capture.
 
@@ -313,28 +313,28 @@ The main source areas are:
 
 ```text
 .
-├── analysis/             APK decoding, evidence extraction, code-risk rules, Ghidra
-├── ai/                   Deterministic reasoning engine (not an LLM integration)
-├── backend/
-│   └── app/
-│       ├── api/routes/   Health, jobs, dynamic, optional terminal
-│       ├── core/         Settings and configuration
-│       ├── db/           Models and database sessions
-│       ├── schemas/      API response models
-│       ├── services/     Job pipeline, events, cancellation, tool checks
-│       └── cli/          Shared static-analysis CLI and read-only views
-├── dynamic/
-│   ├── adb/              ADB client and operation guardrails
-│   ├── emulator/         Device selection and emulator management
-│   ├── logcat/           Parser, classifier, crash observations
-│   └── runtime/          Runtime orchestration
-├── reports/              HTML and PDF generators
-├── frontend/             React + TypeScript dashboard
-├── tests/                Automated tests and fixtures
-├── work/                 Startup scripts and environment/smoke helpers
-├── storage/              Local uploads, workspaces, and reports (runtime data)
-├── RUNBOOK.md            Operating notes
-└── .env.example          Configuration template
+â”œâ”€â”€ analysis/             APK decoding, evidence extraction, code-risk rules, Ghidra
+â”œâ”€â”€ ai/                   Deterministic reasoning engine (not an LLM integration)
+â”œâ”€â”€ backend/
+â”‚   â””â”€â”€ app/
+â”‚       â”œâ”€â”€ api/routes/   Health, jobs, dynamic, optional terminal
+â”‚       â”œâ”€â”€ core/         Settings and configuration
+â”‚       â”œâ”€â”€ db/           Models and database sessions
+â”‚       â”œâ”€â”€ schemas/      API response models
+â”‚       â”œâ”€â”€ services/     Job pipeline, events, cancellation, tool checks
+â”‚       â””â”€â”€ cli/          Shared static-analysis CLI and read-only views
+â”œâ”€â”€ dynamic/
+â”‚   â”œâ”€â”€ adb/              ADB client and operation guardrails
+â”‚   â”œâ”€â”€ emulator/         Device selection and emulator management
+â”‚   â”œâ”€â”€ logcat/           Parser, classifier, crash observations
+â”‚   â””â”€â”€ runtime/          Runtime orchestration
+â”œâ”€â”€ reports/              HTML and PDF generators
+â”œâ”€â”€ frontend/             React + TypeScript dashboard
+â”œâ”€â”€ tests/                Automated tests and fixtures
+â”œâ”€â”€ work/                 Startup scripts and environment/smoke helpers
+â”œâ”€â”€ storage/              Local uploads, workspaces, and reports (runtime data)
+â”œâ”€â”€ RUNBOOK.md            Operating notes
+â””â”€â”€ .env.example          Configuration template
 ```
 
 The storage directory is used for runtime data and should not be treated as source code. Check repository ignore rules before adding generated APKs, reports, emulator output, or other potentially sensitive artifacts to version control.
@@ -389,7 +389,7 @@ Edit `.env` for your machine. The example contains placeholder paths and must no
 bash work/check-environment.sh
 ```
 
-This helper loads the project `.env` when present, then checks Java, the configured/default apktool and JADX JAR paths, ADB, and whether PostgreSQL is accepting connections. It is an initial check, not a guarantee that every feature—including Ghidra and the emulator—is fully configured.
+This helper loads the project `.env` when present, then checks Java, the configured/default apktool and JADX JAR paths, ADB, and whether PostgreSQL is accepting connections. It is an initial check, not a guarantee that every featureâ€”including Ghidra and the emulatorâ€”is fully configured.
 
 ### 3. Install backend dependencies
 
@@ -425,13 +425,13 @@ SQLite is intended for a local single-user demo; PostgreSQL is the normal databa
 
 Open two terminals from the repository root.
 
-Terminal 1 — backend:
+Terminal 1 â€” backend:
 
 ```bash
 bash work/start-backend.sh
 ```
 
-Terminal 2 — frontend:
+Terminal 2 â€” frontend:
 
 ```bash
 bash work/start-frontend.sh
@@ -627,7 +627,7 @@ Settings are loaded from `.env` and environment variables using the `MOBILE_PENT
 | `GHIDRA_HEADLESS_PATH` | Unset | Path to Ghidra's `analyzeHeadless` executable |
 | `GHIDRA_TIMEOUT_SECONDS` | `900` seconds | Overall Ghidra time budget per analysis |
 | `GHIDRA_LIBRARY_TIMEOUT_SECONDS` | `300` seconds | Per-library Ghidra time budget used to size the batch timeout |
-| `GHIDRA_AUTO_EXTEND_TIMEOUT` | `true` | Extends the batch timeout to cover the per-library budgets (per-library limit × number of libraries + 60 s) when that is larger than `GHIDRA_TIMEOUT_SECONDS` |
+| `GHIDRA_AUTO_EXTEND_TIMEOUT` | `true` | Extends the batch timeout to cover the per-library budgets (per-library limit Ã— number of libraries + 60 s) when that is larger than `GHIDRA_TIMEOUT_SECONDS` |
 | `ANDROID_SDK_PATH` | `~/Android/Sdk` | Android SDK root |
 | `ADB_PATH` / `EMULATOR_PATH` | Discovered on PATH or derived from SDK, otherwise legacy defaults | Android tools |
 | `AVD_NAME` | `Dy-MASA` | Emulator profile name |
@@ -746,12 +746,13 @@ Use this software only on applications and devices you own or have written permi
 
 **License:** Licensed under the MIT License. See [LICENSE](LICENSE).
 
-**Author:** Ibsa T. — [@Mr-VantaRoot](https://github.com/Mr-VantaRoot). Developed as an INSA exit project.
+**Author:** Ibsa T. â€” [@Mr-VantaRoot](https://github.com/Mr-VantaRoot). Developed as an INSA exit project.
 
 **Windows Version Developer:** [nasif-xy](https://github.com/nasif-xy) — focused on the Windows developer setup, PowerShell workflow documentation, and cross-platform onboarding for MASA.
 
 Related documentation:
-- [RUNBOOK.md](RUNBOOK.md) — operational setup and troubleshooting notes.
-- [CHANGELOG_DYMASA_RUNTIME.md](CHANGELOG_DYMASA_RUNTIME.md) — runtime feature history and verification limitations.
-- [TECHNICAL_PRESENTATION_BRIEF.md](TECHNICAL_PRESENTATION_BRIEF.md) — detailed technical overview and claim boundaries.
-- [PRESENTATION_NOTES.md](PRESENTATION_NOTES.md) — presentation guidance and known limitations.
+- [RUNBOOK.md](RUNBOOK.md) â€” operational setup and troubleshooting notes.
+- [CHANGELOG_DYMASA_RUNTIME.md](CHANGELOG_DYMASA_RUNTIME.md) â€” runtime feature history and verification limitations.
+- [TECHNICAL_PRESENTATION_BRIEF.md](TECHNICAL_PRESENTATION_BRIEF.md) â€” detailed technical overview and claim boundaries.
+- [PRESENTATION_NOTES.md](PRESENTATION_NOTES.md) â€” presentation guidance and known limitations.
+
