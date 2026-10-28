@@ -740,7 +740,7 @@ Use this software only on applications and devices you own or have written permi
 
 **Author:** Ibsa T. â€” [@Mr-VantaRoot](https://github.com/Mr-VantaRoot). Developed as an INSA exit project.
 
-**Windows Version Developer:** [nasif-xy](https://github.com/nasif-xy) — focused on the Windows developer setup, PowerShell workflow documentation, and cross-platform onboarding for MASA.
+**Windows Version Developer:** Burka T. [nasif-xy](https://github.com/nasif-xy) — focused on the Windows developer setup, PowerShell workflow documentation, and cross-platform onboarding for MASA.
 
 Related documentation:
 - [RUNBOOK.md](RUNBOOK.md) â€” operational setup and troubleshooting notes.
