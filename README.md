@@ -54,15 +54,7 @@ The platform is designed for traceability: findings are derived from stored evid
 
 ## Real-time demo
 
-A real-time walkthrough video demonstrating MASA + DY-MASA in operation will be added here.
-
-<!--
-When the video is published, replace this comment with:
-[Watch the MASA + DY-MASA real-time demo](PASTE_VIDEO_URL_HERE)
-
-For a YouTube video, use its public watch URL. For a video hosted in this repository,
-consider a short GIF preview plus a link to the full video.
--->
+Watch the [MASA + DY-MASA real-time demo video](assets/demo.mp4) (MP4, hosted in this repository).
 
 ---
 
