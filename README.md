@@ -33,20 +33,46 @@ The platform is designed for traceability: findings are derived from stored evid
 6. [Technology stack](#6-technology-stack)
 7. [Architecture and project layout](#7-architecture-and-project-layout)
 8. [Development approach](#8-development-approach)
-9. [Getting started on Fedora/Linux](#9-getting-started-on-fedoralinux)
-10. [Using the platform](#10-using-the-platform)
-11. [Starting and stopping features](#11-starting-and-stopping-features)
-12. [Configuration](#12-configuration)
-13. [API reference](#13-api-reference)
-14. [Testing](#14-testing)
-15. [Safety and security model](#15-safety-and-security-model)
-16. [Limitations and troubleshooting](#16-limitations-and-troubleshooting)
-17. [Responsible use, license, and author](#17-responsible-use-license-and-author)
+9. [Windows quick start](#windows-quick-start)
+10. [Getting started on Fedora/Linux](#9-getting-started-on-fedoralinux)
+11. [Using the platform](#10-using-the-platform)
+12. [Starting and stopping features](#11-starting-and-stopping-features)
+13. [Configuration](#12-configuration)
+14. [API reference](#13-api-reference)
+15. [Testing](#14-testing)
+16. [Safety and security model](#15-safety-and-security-model)
+17. [Limitations and troubleshooting](#16-limitations-and-troubleshooting)
+18. [Responsible use, license, and author](#17-responsible-use-license-and-author)
 
 <!-- Add genuine screenshots when available:
 ![Dashboard](docs/images/dashboard.png)
 ![Findings](docs/images/findings.png)
 -->
+
+---
+
+## Windows quick start
+
+Windows 10/11 setup is documented in [Windows setup](docs/WINDOWS_SETUP.md). Windows PowerShell launchers supplement the existing Fedora/Linux Bash scripts; they do not replace them.
+
+Install Python 3.11/3.12, Node.js LTS, Java, ADB, apktool, and JADX as needed. Then configure your local paths and database in a private `.env` file using [`.env.windows.example`](.env.windows.example) as a template. Never commit `.env` or assessment artifacts.
+
+From the repository root, run these commands in separate PowerShell terminals.
+
+**Terminal 1 — backend**
+```powershell
+.\work\check-environment.ps1
+.\work\start-backend.ps1
+```
+
+**Terminal 2 — frontend**
+```powershell
+.\work\start-frontend.ps1
+```
+
+Open http://127.0.0.1:5173. For detailed installation, Android emulator setup, and troubleshooting, see [Windows setup](docs/WINDOWS_SETUP.md) and [cross-platform compatibility notes](docs/CROSS_PLATFORM_COMPATIBILITY.md).
+
+Windows startup scripts have been added, but the full analysis workflow still needs to be validated on the target Windows machine. Preserve the existing Fedora instructions and scripts for Linux contributors.
 
 ---
 
